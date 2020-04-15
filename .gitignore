@@ -30,3 +30,12 @@
 develop-eggs
 eggs
 fake-eggs
+
+cscope.files
+cscope.out
+cscope.*
+
+
+bgpd*.conf
+tags
+make_cscope.sh
