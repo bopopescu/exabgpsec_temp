@@ -199,7 +199,7 @@ class CryptoBgpsec() :
 
             if negotiated != None :
                 #CryptoBgpsec.bgpsec_openssl_lib = self.negotiated.neighbor.bgpsec_openssl_lib[0]
-                CryptoBgpsec.bgpsec_libloc = self.negotiated.neighbor.bgpsec_libloc[0]
+                CryptoBgpsec.bgpsec_libloc = self.negotiated.neighbor.bgpsec_libloc
             else :
                 #CryptoBgpsec.bgpsec_openssl_lib = '/users/kyehwanl/Quagga_test/Proces_Performance/QuaggaSRxSuite/_inst/lib/srx/libSRxBGPSecOpenSSL.so'
                 CryptoBgpsec.bgpsec_libloc = '/users/kyehwanl/Quagga_test/Proces_Performance/QuaggaSRxSuite/_inst/lib/srx/libSRxCryptoAPI.so'

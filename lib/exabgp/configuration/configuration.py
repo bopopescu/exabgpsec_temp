@@ -125,7 +125,7 @@ class Configuration (_Configuration):
 		self.flow_route          = ParseFlowRoute        (*params)
 		self.flow_match          = ParseFlowMatch        (*params)
 		self.flow_then           = ParseFlowThen         (*params)
-		self.flow_scope		 = ParseFlowScope	 (*params)
+		self.flow_scope		     = ParseFlowScope	     (*params)
 		self.l2vpn               = ParseL2VPN            (*params)
 		self.vpls                = ParseVPLS             (*params)
 		self.operational         = ParseOperational      (*params)

@@ -113,7 +113,7 @@ class Update (Message):
 
 		for nlri in self.nlris:
 			if nlri.family() in negotiated.families:
-				if nlri.afi == AFI.ipv4 and nlri.safi in [SAFI.unicast, SAFI.multicast]:
+				if nlri.afi == AFI.ipv4 and nlri.safi in [SAFI.unicast, SAFI.multicast] and not hasattr(negotiated.neighbor,'bgpsec'):
 					nlris.append(nlri)
 				else:
 					mp_nlris.setdefault(nlri.family(), {}).setdefault(nlri.action, []).append(nlri)
@@ -121,7 +121,7 @@ class Update (Message):
 		if not nlris and not mp_nlris:
 			return
 
-		attr = self.attributes.pack(negotiated, True)
+		attr = self.attributes.pack(negotiated, True, mp_nlris)
 
 		# Withdraws/NLRIS (IPv4 unicast and multicast)
 		msg_size = negotiated.msg_size - 19 - 2 - 2 - len(attr)  # 2 bytes for each of the two prefix() header
