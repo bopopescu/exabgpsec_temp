@@ -31,3 +31,7 @@ __pycache__/
 develop-eggs
 eggs
 fake-eggs
+*cscope*
+*.conf
+tags
+exabgp.env

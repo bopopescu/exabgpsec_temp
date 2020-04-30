@@ -26,3 +26,4 @@ from exabgp.bgp.message.open.capability.refresh import EnhancedRouteRefresh
 from exabgp.bgp.message.open.capability.refresh import REFRESH
 # Do not remove this include or unknown capability will not be handled
 from exabgp.bgp.message.open.capability.unknown import UnknownCapability
+from exabgp.bgp.message.open.capability.bgpsec import BGPSEC

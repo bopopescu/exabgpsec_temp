@@ -193,6 +193,7 @@ class Logger (object):
 			'timer':         command.log.enable and (command.log.all or command.log.timers),
 			'routes':        command.log.enable and (command.log.all or command.log.routes),
 			'parser':        command.log.enable and (command.log.all or command.log.parser),
+            'bgpsec':        command.log.enable and (command.log.all or command.log.BGPSEC),
 		}
 
 		if not command.log.enable:

@@ -121,6 +121,47 @@ def hold_time (tokeniser):
 	return holdtime
 
 
+def ski (tokeniser):
+    ski_str = tokeniser()
+    value = []
+    value.append(ski_str)
+    return value
+
+
+def bgpsec_libloc (tokeniser):
+    value = tokeniser()
+    return value
+
+
+def bgpsec_openssl_lib (tokeniser):
+    value = string(tokeniser)
+    return value
+
+
+def bgpsec_crypto_init (tokeniser):
+    value = string(tokeniser)
+    return value
+
+
+def bgpsec_pre_asns (tokeniser):
+    value = []
+    value = [t for t in tokeniser.tokens[1:] ]
+    return value
+
+
+def bgpsec_pre_skis (tokeniser):
+    value = []
+    value = [t for t in tokeniser.tokens[1:] ]
+    return value
+
+
+def bgpsec_send_receive (tokeniser):
+    value = tokeniser()
+    if not value:
+        raise ValueError('send recv value error')
+    return value
+
+
 def processes (tokeniser):
 	result = []
 	token = tokeniser()
