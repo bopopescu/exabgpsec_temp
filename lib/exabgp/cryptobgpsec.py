@@ -256,6 +256,7 @@ class CryptoBgpsec() :
         CryptoBgpsec.srxApi = SRxCryptoAPI()
         ret = CryptoBgpsec.srxCryptoInit(CryptoBgpsec.srxApi, statusVal)
         print("srxCryptoInit return value %d (API_SUCCESS:1 or API_FAILURE:0)" % ret)
+        return ret
 
 
         #path_type = ctypes.c_char_p

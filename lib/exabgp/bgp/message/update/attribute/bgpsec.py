@@ -137,7 +137,10 @@ class BGPSEC (Attribute):
     def _signature_from_lib (self, asn=None, ski=None):
         if BGPSEC._init_lib != True:
             #self.crtbgp.crypto_init(self.negotiated.neighbor.bgpsec_crypto_init[0], 7)
-            self.crtbgp.crypto_init()
+            ret = self.crtbgp.crypto_init()
+            if not ret :
+                print("CryptoAPI Init failed")
+                return None
             BGPSEC._init_lib = True
 
         # TODO: need better comparison statement for asn and ski
