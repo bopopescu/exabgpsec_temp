@@ -35,3 +35,4 @@ fake-eggs
 *.conf
 tags
 exabgp.env
+*~
