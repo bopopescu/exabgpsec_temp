@@ -205,8 +205,7 @@ class CryptoBgpsec() :
                 #CryptoBgpsec.bgpsec_openssl_lib = self.negotiated.neighbor.bgpsec_openssl_lib[0]
                 CryptoBgpsec.bgpsec_libloc = self.negotiated.neighbor.bgpsec_libloc
             else :
-                #CryptoBgpsec.bgpsec_openssl_lib = '/users/kyehwanl/Quagga_test/Proces_Performance/QuaggaSRxSuite/_inst/lib/srx/libSRxBGPSecOpenSSL.so'
-                CryptoBgpsec.bgpsec_libloc = '/users/kyehwanl/Quagga_test/Proces_Performance/QuaggaSRxSuite/_inst/lib/srx/libSRxCryptoAPI.so'
+                CryptoBgpsec.bgpsec_libloc = '/usr/lib64/srx/libSRxCryptoAPI.so'
 
             #self._path = os.path.join(*(os.path.split(__file__)[:-1] + (CryptoBgpsec.bgpsec_openssl_lib,)))
             #CryptoBgpsec.bgpsec_openssl = ctypes.cdll.LoadLibrary(self._path)
@@ -356,11 +355,11 @@ class CryptoBgpsec() :
 
         self.hashMessageData = valData.hashMessage[0]
 
-        print ('%d byte used from calling genenrate-HashMessage' % retByte)
+        #print ('%d byte used from calling genenrate-HashMessage' % retByte)
         hLen = valData.hashMessage[0].contents.hashMessageValPtr[0].contents.hashMessageLength
-        for i in range (hLen):
-            print (hex(valData.hashMessage[0].contents.hashMessageValPtr[0].contents.hashMessagePtr[i]),)
-        print ('\r')
+        #for i in range (hLen):
+        #    print (hex(valData.hashMessage[0].contents.hashMessageValPtr[0].contents.hashMessagePtr[i]),)
+        #print ('\r')
 
 
         return retByte
@@ -372,10 +371,7 @@ if __name__ == '__main__' :
     """ -------------------------------------------------------------------
      < import C Library>
     ------------------------------------------------------------------- """
-    #bgpopenssl_file     = '/users/kyehwanl/Quagga_test/Proces_Performance/QuaggaSRxSuite/_inst/lib/srx/libSRxBGPSecOpenSSL.so'
-    #srxcryptoapi_file   = '/users/kyehwanl/Quagga_test/Proces_Performance/QuaggaSRxSuite/_inst/lib/srx/libSRxCryptoAPI.so'
-    #bgpopenssl_file     = '/tmp/api/_inst/lib/srx/libSRxBGPSecOpenSSL.so'
-    srxcryptoapi_file   = '/tmp/api/_inst/lib/srx/libSRxCryptoAPI.so'
+    srxcryptoapi_file   = '/usr/lib64/srx/libSRxCryptoAPI.so'
 
     #_path = os.path.join(*(os.path.split(__file__)[:-1] + (bgpopenssl_file,)))
     _path_crypto = os.path.join(*(os.path.split(__file__)[:-1] + (srxcryptoapi_file,)))
@@ -460,7 +456,7 @@ if __name__ == '__main__' :
     #print '--- BGPSec OpenSSL library testing WITH CLASS '
     #print '++ Initiating'
     #crtbgp = CryptoBgpsec()
-    #crtbgp.crypto_init("PRIV:/users/kyehwanl/proj-bgp/extras/srxcryptoapi/keys/priv-ski-list.txt", 7)
+    #crtbgp.crypto_init("PRIV:/keys/priv-ski-list.txt", 7)
 
     #print '++ Signing'
 
@@ -481,7 +477,7 @@ if __name__ == '__main__' :
     #print '-------- Testing SRxCryptoAPI library ----------'
     #path_type = ctypes.c_char_p
     ##path_str = path_type("/opt/project/srx_test1/keys/")
-    #path_str = path_type("/users/kyehwanl/proj-bgp/extras/srxcryptoapi/keys")
+    #path_str = path_type("/srxcryptoapi/keys")
     #path_return = setKeyPath(path_str)
     #print "path(%s) return val: %d" % (path_str.value, path_return)
     ##print(val)
@@ -503,7 +499,7 @@ if __name__ == '__main__' :
 
     #print '--- BGPSec OpenSSL library testing '
     #value_type = ctypes.c_char_p
-    #value = value_type("PRIV:/users/kyehwanl/proj-bgp/extras/srxcryptoapi/keys/priv-ski-list.txt")
+    #value = value_type("PRIV:/keys/priv-ski-list.txt")
     ##value = value_type("PRIV:/opt/project/srx_test1/keys/priv-ski-list.txt")
     #initReturnVal = ctypes.c_uint32()
     #init(value, 7, initReturnVal)
